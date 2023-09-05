@@ -168,4 +168,37 @@
 .cm-tooltip-icon {
     cursor: pointer;
     display: inline-block;
-    width
+    width: 20px;
+    height: 20px;
+    color: var(--color-tooltip-icon);
+    z-index: 9999;
+    margin-left: 0.5rem;
+    margin-top: 0.125rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+data-tooltip {
+    display: none;
+}
+
+.copy-code-popup {
+    position: fixed;
+    right: 20px;
+    bottom: -50px; /* Initially positioned outside the screen for the transition effect */
+    padding: 1rem 10rem 1rem 1rem; /* top right bottom left */
+    background-color: #FAFBFE;
+    color: #12141d;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #d8e3f0;
+    opacity: 0;
+    transition: bottom 0.3s, opacity 0.3s;
+    z-index: 1000; /* High z-index to ensure it appears above other elements */
+    width: auto; /* Make sure the width is determined by content */
+}
+
+.show-popup {
+    bottom: 20px;
+    opacity: 1;
+}
