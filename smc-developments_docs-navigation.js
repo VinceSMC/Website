@@ -1,27 +1,24 @@
 $(window).ready(() => {
     var tabHeight = $(".tab-link-sub").first().outerHeight();
-
     $(".tab-link").click(e => {
         var goTo = $(e.currentTarget).attr("tab");
-        if (goTo) {
-            $(document.documentElement).add(document.body).animate({
+        if (typeof goTo !== 'undefined' && goTo !== false) {
+            $([document.documentElement, document.body]).animate({
                 scrollTop: ($("#" + goTo).offset().top - 150)
             }, 500);
         }
     });
-
     $(".tab-link-sub").click(e => {
         var goTo = $(e.currentTarget).attr("tab");
-        if (goTo) {
-            $(document.documentElement).add(document.body).animate({
+        if (typeof goTo !== 'undefined' && goTo !== false) {
+            $([document.documentElement, document.body]).animate({
                 scrollTop: ($("#" + goTo).offset().top - 160)
             }, 500);
         }
     });
-
+    
     var allTabs = $(".docs__category__content").find(".tab__content");
     var activeSub;
-
     $(window).scroll(() => {
         var visibleTabs = [];
         allTabs.each((k, v) => {
@@ -29,7 +26,6 @@ $(window).ready(() => {
                 visibleTabs.push($(v));
             }
         });
-        
         var firstVis = visibleTabs[0];
         if (firstVis) {
             if (!$("#tabs-container").find(".tab-link[tab='" + firstVis.attr("id") + "']").hasClass("active")) {
@@ -47,7 +43,6 @@ $(window).ready(() => {
                 }
             }
         }
-
         var visibleSubTabs = [];
         if (firstVis) {
             var subTabs = $("#" + firstVis.attr("id")).find(".docs__sub-heading");
@@ -59,7 +54,6 @@ $(window).ready(() => {
             });
             var firstVisSub = visibleSubTabs[0];
         }
-
         if (firstVisSub) {
             if (!$("#tabs-container").find(".tab-link-sub[tab='" + firstVisSub.attr("id") + "']").hasClass("active")) {
                 $("#tabs-container").find(".tab-link-sub").removeClass("active");
@@ -67,7 +61,6 @@ $(window).ready(() => {
                 activeSub = firstVisSub;
             }
         }
-
         if (activeSub) {
             var dist = ($(activeSub).offset().top - $(window).scrollTop());
             if (dist > 170) {
@@ -82,12 +75,12 @@ $(window).ready(() => {
             }
         }
     });
-
-    $.fn.inView = function() {
-        var elementTop = $(this).offset().top;
-        var elementBottom = elementTop + $(this).outerHeight();
-        var viewportTop = $(window).scrollTop();
-        var viewportBottom = viewportTop + $(window).height();
-        return elementBottom > viewportTop && elementTop < viewportBottom;
-    };
 });
+
+$.fn.inView = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    return elementBottom > viewportTop && elementTop < viewportBottom;
+};
