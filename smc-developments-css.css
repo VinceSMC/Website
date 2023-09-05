@@ -1,0 +1,171 @@
+.CodeMirror {
+    height: 100% !important;
+}
+
+.is--dark-mode {
+    --color1: #606060; 
+    --color-true-false: #FFC979;
+    --color-text-inside: rgba(255, 255, 255, 0.75);
+    --color4: #606060;
+    --color5: #606060;
+    --color-prefix: #97ADFF;
+    --color-text: rgba(255, 255, 255, 0.75);
+    --color-number: #8BCEFF;
+    --color-dots: rgba(255, 255, 255, 0.5);
+    --color-line-numbers: rgba(255, 255, 255, 0.5);
+    --color-comment: rgba(255, 255, 255, 0.25);
+    --color-selection: rgba(0, 0, 0, 0.1);
+    --color-tooltip-icon: rgba(255, 255, 255, 0.5);
+}
+
+.is--light-mode {
+    --color1: #606060; 
+    --color-true-false: #FFC979;
+    --color-text-inside: rgba(0, 0, 0, 0.5);
+    --color4: #606060;
+    --color5: #606060;
+    --color-prefix: #97ADFF;
+    --color-text: rgba(0, 0, 0, 0.5);
+    --color-number: #8BCEFF;
+    --color-dots: rgba(0, 0, 0, 0.5);
+    --color-line-numbers: rgba(0, 0, 0, 0.5);
+    --color-comment: rgba(0, 0, 0, 0.25);
+    --color-selection: rgba(0, 0, 0, 0.1);
+    --color-tooltip-icon: rgba(0, 0, 0, 0.25);
+}
+
+.cm-s-default .CodeMirror-gutters,
+.cm-s-default.CodeMirror {
+    background-color: transparent !important;
+    color: var(--color-text) !important;
+    border: none;
+}
+
+.highlighted-line {
+    background-color: rgba(56, 99, 255, 0.1);  /* Light blue background */
+    border-left: 1px solid #3863ff;  /* Solid blue left border */
+}
+
+.cm-s-default .CodeMirror-gutters {
+    color: #131313;
+}
+
+.cm-s-default .CodeMirror-cursor {
+    border-left: solid thin var(--color-text);
+}
+
+.cm-s-default .CodeMirror-linenumber {
+    color: var(--color-line-numbers);
+}
+
+.cm-s-default .CodeMirror-selected {
+    background: var(--color-selection);
+}
+
+.cm-s-default .CodeMirror-line::selection,
+.cm-s-default .CodeMirror-line > span::selection,
+.cm-s-default .CodeMirror-line > span > span::selection {
+    background: var(--color-selection);
+}
+
+.cm-s-default .CodeMirror-line::-moz-selection,
+.cm-s-default .CodeMirror-line > span::-moz-selection,
+.cm-s-default .CodeMirror-line > span > span::-moz-selection {
+    background: var(--color-selection);
+}
+
+.cm-s-default span.cm-comment {
+    color: var(--color-comment);
+}
+
+.cm-s-default span.cm-string,
+.cm-s-default span.cm-string-2 {
+    color: var(--color-text-inside);
+}
+
+.cm-s-default span.cm-number {
+    color: var(--color-number);
+}
+
+.cm-s-default span.cm-variable {
+    color: var(--color1);
+}
+
+.cm-s-default span.cm-variable-2 {
+    color: var(--color-text);
+}
+
+.cm-s-default span.cm-def {
+    color: var(--color1);
+}
+
+.cm-s-default span.cm-operator {
+    color: var(--color-true-false);
+}
+
+.cm-s-default span.cm-keyword {
+    color: var(--color-true-false);
+}
+
+.cm-s-default span.cm-atom {
+    color: var(--color-prefix);
+}
+
+.cm-s-default span.cm-meta {
+    color: var(--color-dots);
+}
+
+.cm-s-default span.cm-tag {
+    color: var(--color-true-false);
+}
+
+.cm-s-default span.cm-attribute {
+    color: var(--color1);
+}
+
+.cm-s-default span.cm-qualifier {
+    color: var(--color1);
+}
+
+.cm-s-default span.cm-property {
+    color: var(--color4);
+}
+
+.cm-s-default span.cm-builtin {
+    color: var(--color1);
+}
+
+.cm-s-default span.cm-type,
+.cm-s-default span.cm-variable-3 {
+    color: var(--color5);
+}
+
+.cm-s-default .CodeMirror-activeline-background {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-default .CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: var(--color-text) !important;
+}
+
+.cm-tooltip {
+    background-color: #fafbfe;
+    color: #000; /* Changed text color to black for visibility against the light background */
+    padding: 10px;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    white-space: normal; /* Allow the text to wrap */
+    word-wrap: break-word; /* Break the words properly */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    z-index: 9999; /* Ensure it's above other content */
+    transition: opacity 0.3s ease;
+    border: 1px solid #d8e3f0;
+    max-width: 400px;
+}
+
+.cm-tooltip-icon {
+    cursor: pointer;
+    display: inline-block;
+    width
