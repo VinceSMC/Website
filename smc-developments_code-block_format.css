@@ -10,7 +10,7 @@
     --color5: #606060;
     --color-prefix: #97ADFF;
     --color-text: rgba(255, 255, 255, 0.75);
-    --color-number: #8BCEFF;
+    --color-number: #55C4FF;
     --color-dots: rgba(255, 255, 255, 0.5);
     --color-line-numbers: rgba(255, 255, 255, 0.5);
     --color-comment: rgba(255, 255, 255, 0.25);
@@ -26,7 +26,7 @@
     --color5: #606060;
     --color-prefix: #97ADFF;
     --color-text: rgba(0, 0, 0, 0.5);
-    --color-number: #8BCEFF;
+    --color-number: #55C4FF;
     --color-dots: rgba(0, 0, 0, 0.5);
     --color-line-numbers: rgba(0, 0, 0, 0.5);
     --color-comment: rgba(0, 0, 0, 0.25);
