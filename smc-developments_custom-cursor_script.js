@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let isScrolling = false;
     let isRafPending = false;
 
+    const BUFFER = 5;  // adjust this value to change how close the cursor needs to be to the edge to hide
+
     cursor.style.transition = 'background-color 0.2s, opacity 0.3s, transform 0.3s';
 
     function getBackgroundColor(el) {
@@ -27,16 +29,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function handleMouseMove(e) {
-        const cursorRect = cursor.getBoundingClientRect();
+        if (e.pageX <= BUFFER || e.pageX >= window.innerWidth - BUFFER || e.pageY <= BUFFER || e.pageY >= window.innerHeight - BUFFER) {
+            cursor.style.opacity = 0;
+            cursor.style.transform = 'translate(-50%, -50%) scale(0)';
+            return;
+        }
 
-        const maxX = window.innerWidth - cursorRect.width / 2;
-        const maxY = window.innerHeight + window.scrollY - cursorRect.height / 2;
+        if (isScrolling) {
+            cursor.style.opacity = 1;
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            isScrolling = false;
+        }
 
-        const clampedX = Math.min(Math.max(e.pageX, cursorRect.width / 2), maxX);
-        const clampedY = Math.min(Math.max(e.pageY, cursorRect.height / 2 + window.scrollY), maxY);
-
-        cursor.style.left = clampedX + 'px';
-        cursor.style.top = clampedY + 'px';
+        cursor.style.left = e.pageX + 'px';
+        cursor.style.top = e.pageY + 'px';
 
         const el = document.elementFromPoint(e.clientX, e.clientY);
         if (!el) return;
@@ -64,11 +70,5 @@ document.addEventListener('DOMContentLoaded', function() {
         isScrolling = true;
         cursor.style.opacity = 0;
         cursor.style.transform = 'translate(-50%, -50%) scale(0)';
-        cursor.style.display = 'none';  // Make sure the cursor is hidden across browsers
-    }, { passive: true }); 
-
-    // Display the cursor again when moving the mouse
-    document.addEventListener('mousemove', function() {
-        cursor.style.display = '';
-    }, { passive: true });
+    }, { passive: true }); // Improved scroll performance
 });
