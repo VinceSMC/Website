@@ -1,6 +1,6 @@
 window.addEventListener('load', function() {
     const loader = document.querySelector('.page-loader');
-    const contentInsideWrapper = document.querySelectorAll('.liquid_page-wrapper > *');
+    const contentInsideWrapper = document.querySelectorAll('.page-loader-wrapper > *');
 
     // Make the content inside .liquid_page-wrapper visible
     contentInsideWrapper.forEach(item => {
