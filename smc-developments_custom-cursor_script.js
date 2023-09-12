@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const BUFFER = 5;  // adjust this value to change how close the cursor needs to be to the edge to hide
 
-    cursor.style.transition = 'background-color 0.2s, opacity 0.3s, transform 0.3s';
+    cursor.style.transition = 'background-color 0.1s, opacity 0.1s, transform 0.1s'; // Quicker animation
 
     function getBackgroundColor(el) {
         const bgColor = window.getComputedStyle(el).backgroundColor;
@@ -29,7 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function handleMouseMove(e) {
-        if (e.pageX <= BUFFER || e.pageX >= window.innerWidth - BUFFER || e.pageY <= BUFFER || e.pageY >= window.innerHeight - BUFFER) {
+        const visibleTop = window.scrollY;
+        const visibleBottom = window.scrollY + window.innerHeight;
+
+        if (e.pageX <= BUFFER || e.pageX >= window.innerWidth - BUFFER || e.pageY - visibleTop <= BUFFER || e.pageY >= visibleBottom - BUFFER) {
             cursor.style.opacity = 0;
             cursor.style.transform = 'translate(-50%, -50%) scale(0)';
             return;
