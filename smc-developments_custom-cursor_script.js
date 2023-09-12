@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let isScrolling = false;
     let isRafPending = false;
 
-    const BUFFER = 5;  // adjust this value to change how close the cursor needs to be to the edge to hide
-
-    cursor.style.transition = 'background-color 0.1s, opacity 0.1s, transform 0.1s'; // Quicker animation
+    cursor.style.transition = 'background-color 0.2s, opacity 0.3s, transform 0.3s';
 
     function getBackgroundColor(el) {
         const bgColor = window.getComputedStyle(el).backgroundColor;
@@ -29,15 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function handleMouseMove(e) {
-        const visibleTop = window.scrollY;
-        const visibleBottom = window.scrollY + window.innerHeight;
-
-        if (e.pageX <= BUFFER || e.pageX >= window.innerWidth - BUFFER || e.pageY - visibleTop <= BUFFER || e.pageY >= visibleBottom - BUFFER) {
-            cursor.style.opacity = 0;
-            cursor.style.transform = 'translate(-50%, -50%) scale(0)';
-            return;
-        }
-
         if (isScrolling) {
             cursor.style.opacity = 1;
             cursor.style.transform = 'translate(-50%, -50%) scale(1)';
