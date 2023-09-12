@@ -33,18 +33,16 @@ document.addEventListener('DOMContentLoaded', function() {
             isScrolling = false;
         }
 
-        cursor.style.left = e.pageX + 'px';
-        cursor.style.top = e.pageY + 'px';
+        // Calculate the maximum allowed x and y coordinates for the cursor 
+        const maxX = window.innerWidth - cursor.offsetWidth / 2;
+        const maxY = window.innerHeight - cursor.offsetHeight / 2;
+        
+        // Clamp the cursor's position to stay inside the viewport boundaries
+        const clampedX = Math.min(Math.max(e.pageX, cursor.offsetWidth / 2), maxX);
+        const clampedY = Math.min(Math.max(e.pageY, cursor.offsetHeight / 2), maxY);
 
-        // Check if cursor is near any of the 4 edges
-        const buffer = 5; // pixel buffer to fade out the cursor before it actually hits the edge
-        if (e.pageX <= buffer || e.pageY <= buffer || e.pageX >= window.innerWidth - buffer || e.pageY >= window.innerHeight - buffer) {
-            cursor.style.opacity = 0;
-            cursor.style.visibility = 'hidden';  // Hiding the cursor 
-        } else {
-            cursor.style.opacity = 1;
-            cursor.style.visibility = 'visible';  // Making the cursor visible again when away from edges
-        }
+        cursor.style.left = clampedX + 'px';
+        cursor.style.top = clampedY + 'px';
 
         const el = document.elementFromPoint(e.clientX, e.clientY);
         if (!el) return;
