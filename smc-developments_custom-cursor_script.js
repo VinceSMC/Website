@@ -27,19 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function handleMouseMove(e) {
-        if (isScrolling) {
-            cursor.style.opacity = 1;
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-            isScrolling = false;
-        }
+        const cursorRect = cursor.getBoundingClientRect();
 
-        // Calculate the maximum allowed x and y coordinates for the cursor 
-        const maxX = window.innerWidth - cursor.offsetWidth / 2;
-        const maxY = window.innerHeight - cursor.offsetHeight / 2;
-        
-        // Clamp the cursor's position to stay inside the viewport boundaries
-        const clampedX = Math.min(Math.max(e.pageX, cursor.offsetWidth / 2), maxX);
-        const clampedY = Math.min(Math.max(e.pageY, cursor.offsetHeight / 2), maxY);
+        const maxX = window.innerWidth - cursorRect.width / 2;
+        const maxY = window.innerHeight + window.scrollY - cursorRect.height / 2;
+
+        const clampedX = Math.min(Math.max(e.pageX, cursorRect.width / 2), maxX);
+        const clampedY = Math.min(Math.max(e.pageY, cursorRect.height / 2 + window.scrollY), maxY);
 
         cursor.style.left = clampedX + 'px';
         cursor.style.top = clampedY + 'px';
@@ -70,5 +64,11 @@ document.addEventListener('DOMContentLoaded', function() {
         isScrolling = true;
         cursor.style.opacity = 0;
         cursor.style.transform = 'translate(-50%, -50%) scale(0)';
-    }, { passive: true }); // Improved scroll performance
+        cursor.style.display = 'none';  // Make sure the cursor is hidden across browsers
+    }, { passive: true }); 
+
+    // Display the cursor again when moving the mouse
+    document.addEventListener('mousemove', function() {
+        cursor.style.display = '';
+    }, { passive: true });
 });
