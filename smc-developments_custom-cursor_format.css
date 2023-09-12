@@ -1,0 +1,15 @@
+/* Custom cursor styles */
+* {
+    cursor: none !important;
+}
+
+.custom-cursor {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: none;
+    z-index: 9999;
+    transition: background-color 0.2s;
+}
