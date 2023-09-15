@@ -3,73 +3,97 @@ let menuShape = $(".menu_shape");
 let menuShapeBG = $(".menu_shape-bg");
 let menuLinkLiquid = $(".menu_link");
 let currentLink = $(".menu_link.w--current");
-let pageWrapper = $('.liquid_page-wrapper')
+let pageWrapper = $('.liquid_page-wrapper');
+let menuContainer = $(".menu__container"); // Assuming .menu__container is the main container holding the menu
 
-
-//For CMS Page Set Gallery to Current
-if(window.location.pathname.includes('/survival-gallery/')){
-    menuLinkLiquid.each(function(){
-        if($(this).attr("is-cms-link")){
-            $(this).addClass('w--current')
-						currentLink = $(".menu_link.w--current");
+// Check if current page is CMS page, if so, set gallery to current
+if (window.location.pathname.includes('/survival-gallery/')) {
+    menuLinkLiquid.each(function() {
+        if ($(this).attr("is-cms-link")) {
+            $(this).addClass('w--current');
+            currentLink = $(".menu_link.w--current");
         }
-    })	
+    });
 }
 
-// On page load
-pageWrapper.css('opacity', '1')
+// Initial page load settings
+pageWrapper.css('opacity', '1');
 moveShape(currentLink);
 $(".menu_link-bg").css("opacity", "0");
 menuShape.css("opacity", "1");
 menuLinkLiquid.css("pointer-events", "auto");
 
+// Functionality when a menu link is clicked
+menuLinkLiquid.on("click", function(e) {
+    e.preventDefault();
 
-// On click
-menuLinkLiquid.on("click", function (e) {
-  // Page url
-  e.preventDefault();
-  setTimeout(() => {
-    window.location = $(this).attr("href");
-  }, duration);
-
-	//page wrapper
-	pageWrapper.css('opacity', '0')
-
-  // menuShapeBG Stretch
-  if ($(this).index() > currentLink.index()) {
-    menuShape.css("justify-content", "flex-end");
-  }
-  if (currentLink.index() !== $(this).index()) {
-    menuShapeBG.css("transition", `width ${duration / 2}ms`);
-    menuShapeBG.css("width", "140%");
     setTimeout(() => {
-      menuShapeBG.css("width", "100%");
-    }, duration / 2);
-  }
-  // menuShape move
-  menuShape.css("transition", `all ${duration}ms`);
-  moveShape($(this));
-	
+        window.location = $(this).attr("href");
+    }, duration);
+
+    pageWrapper.css('opacity', '0');
+
+    if ($(this).index() > currentLink.index()) {
+        menuShape.css("justify-content", "flex-end");
+    }
+
+    if (currentLink.index() !== $(this).index()) {
+        menuShapeBG.css("transition", `width ${duration / 2}ms`);
+        menuShapeBG.css("width", "140%");
+        setTimeout(() => {
+            menuShapeBG.css("width", "100%");
+        }, duration / 2);
+    }
+
+    menuShape.css("transition", `all ${duration}ms`);
+    moveShape($(this));
 });
 
-// Snap
+// Function to adjust the shape of the menu based on target
 function moveShape(target) {
-  let linkWidth = target.innerWidth();
-  let linkOffset = target.offset().left;
-  let menuOffset = $(".menu").offset().left;
-  let leftPosition = linkOffset - menuOffset;
-  menuShape.css("left", leftPosition);
-  menuShape.css("width", linkWidth);
+    let linkWidth = target.innerWidth();
+    let linkOffset = target.offset().left;
+    let menuOffset = $(".menu").offset().left;
+    let leftPosition = linkOffset - menuOffset;
+    menuShape.css("left", leftPosition);
+    menuShape.css("width", linkWidth);
 }
 
-// Resize
-window.addEventListener("resize", function () {
-  moveShape(currentLink);
+// Readjust menu shape on window resize
+window.addEventListener("resize", function() {
+    moveShape(currentLink);
 });
 
-// Back button safari
-window.onpageshow = function (event) {
-  if (event.persisted) {
-    window.location.reload();
-  }
+// Handle back button in Safari
+window.onpageshow = function(event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
 };
+
+// Scroll-based menu fade and move
+let lastScrollTop = 0;
+$(window).scroll(function() {
+    var currentScrollTop = $(this).scrollTop();
+
+    // Scroll down
+    if (currentScrollTop > lastScrollTop) {
+        menuContainer.css({
+            'opacity': '0',
+            'transform': 'translateY(20px)',  // Adjust this value as per your needs
+            'transition': 'opacity 0.3s ease, transform 0.3s ease',
+            'pointer-events': 'none'  // This will prevent the div from capturing any mouse events
+        });
+    } 
+    // Scroll up
+    else {
+        menuContainer.css({
+            'opacity': '1',
+            'transform': 'translateY(0)',  // Adjust this value as per your needs
+            'transition': 'opacity 0.3s ease, transform 0.3s ease',
+            'pointer-events': 'auto'  // This will allow the div to capture mouse events again
+        });
+    }
+
+    lastScrollTop = currentScrollTop;
+});
