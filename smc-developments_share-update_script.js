@@ -1,18 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Function to show the modal and change the text to the link
-    document.querySelector('.changelog__social-share').addEventListener('click', function(event) {
-        
-        const overlay = document.querySelector('.changelog__modal-overlay');
-        overlay.style.display = 'flex';
-        setTimeout(() => overlay.classList.add('show-modal'), 10);
-        
-        // Get the dynamic link from the closest parent .changelog__list's .modal__shareable-link href attribute
-        const dynamicLink = this.closest('.changelog__list').querySelector('.modal__shareable-link').href;
+    // Attach click event to all changelog__social-share buttons
+    const shareButtons = document.querySelectorAll('.changelog__social-share');
+    shareButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const overlay = document.querySelector('.changelog__modal-overlay');
+            overlay.style.display = 'flex';
+            setTimeout(() => overlay.classList.add('show-modal'), 10);
 
-        // Change the text inside the modal to the link
-        const linkText = document.querySelector('.modal__link-text');
-        linkText.textContent = dynamicLink;
+            // Get the dynamic link from the closest parent .changelog__list's .modal__shareable-link href attribute
+            const dynamicLink = this.closest('.changelog__list').querySelector('.modal__shareable-link').href;
+
+            // Change the text inside the modal to the link
+            const linkText = document.querySelector('.modal__link-text');
+            linkText.textContent = dynamicLink;
+        });
     });
 
     // Function to hide the modal when overlay or close SVG is clicked
