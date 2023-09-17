@@ -1,0 +1,35 @@
+/* Navbar animation styles */
+* {
+    box-sizing: border-box;
+}
+
+.navbar__container {
+    max-width: 95%;
+    width: 100%;
+    transition: max-width 0.3s; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar__container.animated {
+    max-width: 85rem;
+}
+
+.navbar-section.is--landing {
+    position: sticky;
+    background-color: transparent;
+    transition: position 0.3s, background-color 0.3s, width 0.3s;
+}
+
+.navbar-section.is--landing.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+}
+
+.navbar-section.expanded {
+    width: 100vw;
+    background-color: #12141d;
+}
