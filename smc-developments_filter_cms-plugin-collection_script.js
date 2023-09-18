@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Check for dropdown enabled
     if (!configuration.dropdownEnabled && dropdownOptionsDiv) {
         dropdownOptionsDiv.style.pointerEvents = "none"; // Disables mouse interactions
-        dropdownOptionsDiv.style.opacity = "0"; // Makes it semi-transparent to indicate it's disabled (optional)
+        dropdownOptionsDiv.style.opacity = "0.25"; // Makes it semi-transparent to indicate it's disabled (optional)
     } else {
         var dropdownFilter = document.querySelector('.dropdown-filter');
     
