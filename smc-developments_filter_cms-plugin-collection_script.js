@@ -34,15 +34,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    var dropdownOptionsDiv = document.querySelector(".dropdown-options");
+
     // Check for dropdown enabled
-    if (!configuration.dropdownEnabled) {
-        var dropdownElem = document.querySelector('.dropdown-filter');
-        if (dropdownElem) {
-            dropdownElem.style.display = "none";
-        }
+    if (!configuration.dropdownEnabled && dropdownOptionsDiv) {
+        dropdownOptionsDiv.style.pointerEvents = "none"; // Disables mouse interactions
+        dropdownOptionsDiv.style.opacity = "0.5"; // Makes it semi-transparent to indicate it's disabled (optional)
     } else {
         var dropdownFilter = document.querySelector('.dropdown-filter');
-        var dropdownOptionsDiv = document.querySelector(".dropdown-options");
     
         dropdownFilter.addEventListener('mouseenter', function() {
             dropdownOptionsDiv.style.display = "block";
