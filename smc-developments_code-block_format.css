@@ -151,9 +151,11 @@
 
 .cm-tooltip {
     background-color: #fafbfe;
-    color: #000; /* Changed text color to black for visibility against the light background */
+    color: rgba(34, 37, 45, 0.75); /* #22252d with 75% opacity */
     padding: 10px;
     border-radius: 0.5rem;
+    font-family: 'Inter var', sans-serif; /* Use Inter variable font */
+    font-weight: 500; /* Medium weight for Inter font is typically 500 */
     font-size: 0.8rem;
     white-space: normal; /* Allow the text to wrap */
     word-wrap: break-word; /* Break the words properly */
