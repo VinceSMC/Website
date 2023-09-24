@@ -1,10 +1,10 @@
-const optionsYears = {
+const optionsPlugins = {
   enableScrollSpy: true,
   duration: 3,
   suffix: "+"
 };
 
-const numAnimYears = new countUp.CountUp("count-years", 6, optionsYears);
+const numAnimPlugins = new countUp.CountUp("count-plugins", 32, optionsPlugins);
 
 const optionsHours = {
   enableScrollSpy: true,
