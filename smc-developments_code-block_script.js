@@ -102,7 +102,7 @@ function showTooltip(event, content) {
         .map(line => line.trim().replace(/^- "/, '').replace(/"$/, ''))
         .filter(line => line.length > 0)
         .map(line => {
-            line = line.replace(/'(.+?)'/g, '<span class="is--code-wrapper is--light-mode">$1</span>');
+            line = line.replace(/'(.+?)'/g, '<span class="is--code-wrapper is--tooltip">$1</span>');
             line = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
             return line;
         })
