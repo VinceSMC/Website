@@ -1,7 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll('.changelog__date-time-ago').forEach(function(element) {
-        // Grab the date from the adjacent hidden field
-        let dateTime = new Date(element.previousElementSibling.textContent);
+        // Find the parent CMS item and the hidden date field
+        let cmsItem = element.closest('.cms-item');
+        let dateElement = cmsItem ? cmsItem.querySelector('.changelog__hidden-date') : null;
+
+        if (!dateElement) {
+            console.error('No date element found for: ', element);
+            return;
+        }
+
+        let dateTime = new Date(dateElement.textContent);
         let now = new Date();
         let difference = now - dateTime;
         
