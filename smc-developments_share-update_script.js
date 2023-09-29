@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
             overlay.style.display = 'flex';
             setTimeout(() => overlay.classList.add('show-modal'), 10);
 
-            // Get the dynamic link from the closest parent .changelog__list's .modal__shareable-link href attribute
-            const dynamicLink = this.closest('.changelog__list').querySelector('.modal__shareable-link').href;
+            // Get the dynamic link from the closest parent .changelog__wrapper's .modal__shareable-link href attribute
+            const dynamicLink = this.closest('.changelog__wrapper').querySelector('.modal__shareable-link').href;
 
             // Change the text inside the modal to the link
             const linkText = document.querySelector('.modal__link-text');
