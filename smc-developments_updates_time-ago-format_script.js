@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let minute = 60 * 1000;
         let hour = minute * 60;
         let day = hour * 24;
+        let week = day * 7;
         let month = day * 30;
         let year = day * 365;
 
@@ -26,9 +27,12 @@ document.addEventListener("DOMContentLoaded", function() {
         } else if (difference < day) {
             let hoursPassed = Math.floor(difference / hour);
             result = hoursPassed === 1 ? '1 hour ago' : hoursPassed + ' hours ago';
-        } else if (difference < month) {
+        } else if (difference < week) {
             let daysPassed = Math.floor(difference / day);
             result = daysPassed === 1 ? '1 day ago' : daysPassed + ' days ago';
+        } else if (difference < (4 * week)) { // Less than 4 weeks
+            let weeksPassed = Math.floor(difference / week);
+            result = weeksPassed === 1 ? '1 week ago' : weeksPassed + ' weeks ago';
         } else if (difference < year) {
             let monthsPassed = Math.floor(difference / month);
             result = monthsPassed === 1 ? '1 month ago' : monthsPassed + ' months ago';
