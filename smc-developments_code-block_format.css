@@ -4,13 +4,13 @@
 
 .is--dark-mode {
     --color1: #606060; 
-    --color-true-false: #FFC979;
+    --color-true-false: #e45f35;
     --color-text-inside: rgba(255, 255, 255, 0.75);
     --color4: #606060;
     --color5: #606060;
-    --color-prefix: #97ADFF;
+    --color-prefix: #ffffff;
     --color-text: rgba(255, 255, 255, 0.75);
-    --color-number: #55C4FF;
+    --color-number: #3772ff;
     --color-dots: rgba(255, 255, 255, 0.5);
     --color-line-numbers: rgba(255, 255, 255, 0.5);
     --color-comment: rgba(255, 255, 255, 0.25);
@@ -20,13 +20,13 @@
 
 .is--light-mode {
     --color1: #606060; 
-    --color-true-false: #FFC979;
+    --color-true-false: #e45f35;
     --color-text-inside: rgba(0, 0, 0, 0.5);
     --color4: #606060;
     --color5: #606060;
-    --color-prefix: #97ADFF;
+    --color-prefix: #31343f;
     --color-text: rgba(0, 0, 0, 0.5);
-    --color-number: #55C4FF;
+    --color-number: #3772ff;
     --color-dots: rgba(0, 0, 0, 0.5);
     --color-line-numbers: rgba(0, 0, 0, 0.5);
     --color-comment: rgba(0, 0, 0, 0.25);
