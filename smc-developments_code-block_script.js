@@ -8,7 +8,7 @@ function initCodeBlock() {
             mode: codeMode,
             theme: "default",
             lineNumbers: true,
-            lineWrapping: true,
+            lineWrapping: false,
             readOnly: true
         });
 
