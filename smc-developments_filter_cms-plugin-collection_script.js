@@ -1,9 +1,34 @@
-// Assuming the 'configuration' object exists in global scope.
-
 document.addEventListener("DOMContentLoaded", function() {
     
     // Finsweet Initialization
     var projectsGrid = new FsLibrary('.collection__card-wrapper');
+
+    // Link update based on hidden text component
+    const links = document.querySelectorAll('[data-custom-path]');
+    links.forEach(link => {
+        const hiddenTextComponent = link.querySelector('.hidden-component');
+        if (hiddenTextComponent) {
+            const cmsName = hiddenTextComponent.textContent.trim().toLowerCase();
+            link.href = `/docs/plugins/supreme${cmsName}`;
+        }
+    });
+
+    // Hover effect on collection card content
+    const collectionCardContent = document.querySelectorAll('.collection__card-content');
+    collectionCardContent.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            const overlay = card.querySelector('.collection__card-overlay');
+            if (overlay) {
+                overlay.style.opacity = "1";
+            }
+        });
+        card.addEventListener('mouseleave', function() {
+            const overlay = card.querySelector('.collection__card-overlay');
+            if (overlay) {
+                overlay.style.opacity = "0";
+            }
+        });
+    });
 
     // Define our filter groups
     var myFilters = [
