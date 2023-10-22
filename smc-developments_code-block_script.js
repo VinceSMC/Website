@@ -7,7 +7,7 @@ function initCodeBlock() {
         let editor = CodeMirror.fromTextArea(textArea, {
             mode: codeMode,
             theme: "default",
-            lineNumbers: true,
+            lineNumbers: false,
             lineWrapping: false,
             readOnly: true
         });
