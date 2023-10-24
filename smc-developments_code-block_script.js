@@ -86,6 +86,7 @@ function processEmojiContent(content) {
         ':wave:': '👋',
         ':smile:': '😄',
         ':point_right:': '👉',
+        ':note:': '🔸',
     };
 
     Object.keys(emojiMap).forEach(emojiCode => {
