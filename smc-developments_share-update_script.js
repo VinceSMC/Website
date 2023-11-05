@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Attach click event to all elements with data-changelog-social-share attribute
-    const shareButtons = document.querySelectorAll('[data-changelog-social-share]');
+    // Attach click event to all elements with the "data-link-share" attribute
+    const shareButtons = document.querySelectorAll('[data-link-share]');
     shareButtons.forEach(function(button) {
         button.addEventListener('click', function() {
             const overlay = document.querySelector('.changelog__modal-overlay');
             overlay.style.display = 'flex';
             setTimeout(() => overlay.classList.add('show-modal'), 10);
 
-            // Get the dynamic link from the closest parent .changelog__wrapper's [data-modal-shareable-link] href attribute
-            const dynamicLink = this.closest('.changelog__wrapper').querySelector('[data-modal-shareable-link]').href;
+            // Get the dynamic link from the closest parent with the "data-link-share" attribute
+            const dynamicLink = this.closest('[data-link-share]').querySelector('[data-modal-shareable-link]').href;
 
             // Change the text inside the modal to the link
             const linkText = document.querySelector('.modal__link-text');
