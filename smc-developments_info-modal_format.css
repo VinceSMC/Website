@@ -1,0 +1,10 @@
+.info__modal-overlay, .info__modal-content {
+  display: none; /* Start with display none to ensure they are not visible */
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Transition for opacity */
+}
+
+.info__modal-overlay.active, .info__modal-content.active {
+  opacity: 1; /* Transition to visible state */
+}
+/* .active class does not include display:flex; because it is handled by JS */
