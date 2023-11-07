@@ -71,4 +71,23 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('[data-modal-close]').forEach(closeButton => {
     closeButton.addEventListener('click', closeModal);
   });
+
+  // New functionality to change text color on hover
+  const modalTriggers = document.querySelectorAll('[data-info-modal]');
+
+  const changeTextColor = (hoveredElement, color) => {
+    const infoText = document.querySelector(`[data-info-hover="${hoveredElement.getAttribute('data-info-modal')}"]`);
+    if (infoText) {
+      infoText.style.color = color;
+    }
+  };
+
+  modalTriggers.forEach(trigger => {
+    trigger.addEventListener("mouseenter", function() {
+      changeTextColor(this, 'var(--swatch-vibrant--purple)'); // Change the color on hover
+    });
+    trigger.addEventListener("mouseleave", function() {
+      changeTextColor(this, ''); // Remove the color on mouse leave
+    });
+  });
 });
