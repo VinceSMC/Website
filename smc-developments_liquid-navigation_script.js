@@ -82,7 +82,6 @@ $(window).scroll(function() {
             'opacity': '0',
             'transform': 'translateY(20px)',  // Adjust this value as per your needs
             'transition': 'opacity 0.3s ease, transform 0.3s ease',
-            'pointer-events': 'none'
         });
     } 
     // Scroll up
@@ -91,7 +90,6 @@ $(window).scroll(function() {
             'opacity': '1',
             'transform': 'translateY(0)',  // Adjust this value as per your needs
             'transition': 'opacity 0.3s ease, transform 0.3s ease',
-            'pointer-events': 'none'
         });
     }
 
