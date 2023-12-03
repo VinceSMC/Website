@@ -4,7 +4,7 @@ let menuShapeBG = $(".menu_shape-bg");
 let menuLinkLiquid = $(".menu_link");
 let currentLink = $(".menu_link.w--current");
 let pageWrapper = $('.liquid_page-wrapper');
-let menuContainer = $(".menu__container"); // Assuming .menu__container is the main container holding the menu
+let menuContainer = $(".menu__container"); // .menu__container is the main container holding the menu
 
 // Check if current page is CMS page, if so, set gallery to current
 if (window.location.pathname.includes('/survival-gallery/')) {
@@ -21,7 +21,6 @@ pageWrapper.css('opacity', '1');
 moveShape(currentLink);
 $(".menu_link-bg").css("opacity", "0");
 menuShape.css("opacity", "1");
-menuLinkLiquid.css("pointer-events", "auto");
 
 // Functionality when a menu link is clicked
 menuLinkLiquid.on("click", function(e) {
