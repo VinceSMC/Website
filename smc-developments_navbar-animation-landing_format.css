@@ -1,4 +1,3 @@
-/* Navbar animation styles */
 * {
     box-sizing: border-box;
 }
@@ -12,16 +11,16 @@
 }
 
 .navigation__container.animated {
-    max-width: 85rem;
+    max-width: 85rem
 }
 
-.navigation.is--landing {
+.navigation {
     position: sticky;
     background-color: transparent;
     transition: position 0.3s, background-color 0.3s, width 0.3s;
 }
 
-.navigation.is--landing.fixed {
+.navigation.fixed {
     position: fixed;
     top: 0;
     left: 0;
@@ -31,5 +30,5 @@
 
 .navigation.expanded {
     width: 100vw;
-    background-color: #1a1d25;
+    background-color: var(--nav-bar);
 }
