@@ -1,7 +1,7 @@
 function handleScrollForNavbar() {
     const threshold = window.innerHeight * 0.5;  
     const navbarContainer = document.querySelector(".navigation__container");
-    const navbarSection = document.querySelector(".navigation.is--landing");
+    const navbarSection = document.querySelector(".navigation");
 
     if (window.scrollY >= threshold) {
         navbarContainer.classList.add("animated");
