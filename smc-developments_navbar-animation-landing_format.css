@@ -14,13 +14,13 @@
     max-width: 85rem
 }
 
-.navigation {
+.navigation, .navigation__mob {
     position: sticky;
     background-color: transparent;
     transition: position 0.3s, background-color 0.3s, width 0.3s;
 }
 
-.navigation.fixed {
+.navigation.fixed, .navigation__mob.fixed {
     position: fixed;
     top: 0;
     left: 0;
@@ -28,7 +28,7 @@
     width: auto;
 }
 
-.navigation.expanded {
+.navigation.expanded, .navigation__mob.expanded {
     width: 100vw;
     background-color: var(--nav-bar);
 }
