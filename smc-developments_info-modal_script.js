@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function closeModal() {
     const overlay = document.querySelector('.info__modal-overlay');
     const modals = document.querySelectorAll('.info__modal-content');
+    document.body.style.overflow = ''; // Enable scroll
 
     overlay.classList.remove('active');
     modals.forEach((modal) => {
