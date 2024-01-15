@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
   function openModal(modalValue) {
     const overlay = document.querySelector('.info__modal-overlay');
     const modals = document.querySelectorAll('.info__modal-content');
-    document.body.style.overflow = 'hidden'; // Disable scroll
 
     // Hide all modals first
     modals.forEach((modal) => {
@@ -30,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
   function closeModal() {
     const overlay = document.querySelector('.info__modal-overlay');
     const modals = document.querySelectorAll('.info__modal-content');
-    document.body.style.overflow = ''; // Enable scroll
 
     overlay.classList.remove('active');
     modals.forEach((modal) => {
