@@ -5,7 +5,7 @@
 })(jQuery);
 
 var clicks = true;
-$(".light__switch").click(function (evt) {
+$(".wrapper__light-switch--lnnbg").click(function (evt) {
   if (clicks) {
     switch_mode_from_dark_to_light();
     clicks = false;
@@ -21,7 +21,7 @@ $(".light__switch").click(function (evt) {
 if (localStorage.getItem("mode")) {
   let userMode = localStorage.getItem("mode");
   if (userMode == "light") {
-    $(".light__switch")[0].click();
+    $(".wrapper__light-switch--lnnbg")[0].click();
   }
 }
 
