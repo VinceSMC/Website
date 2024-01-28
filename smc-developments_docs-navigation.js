@@ -1,7 +1,7 @@
 $(window).ready(() => {
     var tabHeight = $(".tab-link-sub").first().outerHeight();
     
-    $(".tab-link").click(e => {
+    $(".wrapper__table-of-content_tabs-tab--uitra").click(e => {
         var goTo = $(e.currentTarget).attr("tab");
         if (typeof goTo !== 'undefined' && goTo !== false) {
             $([document.documentElement, document.body]).animate({
@@ -33,9 +33,9 @@ $(window).ready(() => {
         var firstVis = visibleTabs[0];
         if (firstVis) {
             var id = firstVis.attr("id");
-            var tabLink = $("#tabs-container").find(".tab-link[tab='" + id + "']");
+            var tabLink = $("#tabs-container").find(".wrapper__table-of-content_tabs-tab--uitra[tab='" + id + "']");
             if (!tabLink.hasClass("active")) {
-                $("#tabs-container").find(".tab-link, .tab-link-sub, .sub-container").removeClass("active subactive");
+                $("#tabs-container").find(".wrapper__table-of-content_tabs-tab--uitra, .tab-link-sub, .sub-container").removeClass("active subactive");
                 $("#tabs-container").find(".sub-container").removeAttr("style");
                 
                 tabLink.addClass("active");
