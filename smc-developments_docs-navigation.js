@@ -35,11 +35,11 @@ $(window).ready(() => {
             var id = firstVis.attr("id");
             var tabLink = $("#tabs-container").find(".wrapper__table-of-content_tabs-tab--uitra[tab='" + id + "']");
             if (!tabLink.hasClass("active")) {
-                $("#tabs-container").find(".wrapper__table-of-content_tabs-tab--uitra, .tab-link-sub, .sub-container").removeClass("active subactive");
-                $("#tabs-container").find(".sub-container").removeAttr("style");
+                $("#tabs-container").find(".wrapper__table-of-content_tabs-tab--uitra, .tab-link-sub, .wrapper__table-of-content_tabs-sub-tab--uitra").removeClass("active subactive");
+                $("#tabs-container").find(".wrapper__table-of-content_tabs-sub-tab--uitra").removeAttr("style");
                 
                 tabLink.addClass("active");
-                var subContainer = $("#tabs-container").find(".sub-container[sub='" + id + "']");
+                var subContainer = $("#tabs-container").find(".wrapper__table-of-content_tabs-sub-tab--uitra[sub='" + id + "']");
                 var subContainerHeight = subContainer.find(".tab-link-sub").length * tabHeight;
                 subContainer.css("height", subContainerHeight + "px").addClass("active");
                 $("#tabs-container").find(".tab-link-sub[sub='" + id + "']").addClass("subactive");
