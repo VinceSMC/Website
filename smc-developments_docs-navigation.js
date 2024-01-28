@@ -19,7 +19,7 @@ $(window).ready(() => {
         }
     });
     
-    var allTabs = $(".docs__category__content").find(".tab__content");
+    var allTabs = $(".wrapper__main-content_content--uitra").find(".tab__content");
     var activeSub;
 
     $(window).scroll(() => {
