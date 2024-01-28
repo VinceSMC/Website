@@ -1,5 +1,5 @@
 $(window).ready(() => {
-    var tabHeight = $(".tab-link-sub").first().outerHeight();
+    var tabHeight = $(".wrapper__table-of-content_tabs-sub-tab_link--uitra").first().outerHeight();
     
     $(".wrapper__table-of-content_tabs-tab--uitra").click(e => {
         var goTo = $(e.currentTarget).attr("tab");
@@ -10,7 +10,7 @@ $(window).ready(() => {
         }
     });
 
-    $(".tab-link-sub").click(e => {
+    $(".wrapper__table-of-content_tabs-sub-tab_link--uitra").click(e => {
         var goTo = $(e.currentTarget).attr("tab");
         if (typeof goTo !== 'undefined' && goTo !== false) {
             $([document.documentElement, document.body]).animate({
@@ -35,14 +35,14 @@ $(window).ready(() => {
             var id = firstVis.attr("id");
             var tabLink = $("#tabs-container").find(".wrapper__table-of-content_tabs-tab--uitra[tab='" + id + "']");
             if (!tabLink.hasClass("active")) {
-                $("#tabs-container").find(".wrapper__table-of-content_tabs-tab--uitra, .tab-link-sub, .wrapper__table-of-content_tabs-sub-tab--uitra").removeClass("active subactive");
+                $("#tabs-container").find(".wrapper__table-of-content_tabs-tab--uitra, .wrapper__table-of-content_tabs-sub-tab_link--uitra, .wrapper__table-of-content_tabs-sub-tab--uitra").removeClass("active subactive");
                 $("#tabs-container").find(".wrapper__table-of-content_tabs-sub-tab--uitra").removeAttr("style");
                 
                 tabLink.addClass("active");
                 var subContainer = $("#tabs-container").find(".wrapper__table-of-content_tabs-sub-tab--uitra[sub='" + id + "']");
-                var subContainerHeight = subContainer.find(".tab-link-sub").length * tabHeight;
+                var subContainerHeight = subContainer.find(".wrapper__table-of-content_tabs-sub-tab_link--uitra").length * tabHeight;
                 subContainer.css("height", subContainerHeight + "px").addClass("active");
-                $("#tabs-container").find(".tab-link-sub[sub='" + id + "']").addClass("subactive");
+                $("#tabs-container").find(".wrapper__table-of-content_tabs-sub-tab_link--uitra[sub='" + id + "']").addClass("subactive");
             }
         }
         
@@ -60,9 +60,9 @@ $(window).ready(() => {
 
         if (firstVisSub) {
             var id = firstVisSub.attr("id");
-            var subTabLink = $("#tabs-container").find(".tab-link-sub[tab='" + id + "']");
+            var subTabLink = $("#tabs-container").find(".wrapper__table-of-content_tabs-sub-tab_link--uitra[tab='" + id + "']");
             if (!subTabLink.hasClass("active")) {
-                $("#tabs-container").find(".tab-link-sub").removeClass("active");
+                $("#tabs-container").find(".wrapper__table-of-content_tabs-sub-tab_link--uitra").removeClass("active");
                 subTabLink.addClass("active");
                 activeSub = firstVisSub;
             }
@@ -72,10 +72,10 @@ $(window).ready(() => {
             var dist = ($(activeSub).offset().top - $(window).scrollTop());
             if (dist > 170) {
                 var id = activeSub.attr("id");
-                var subTabLink = $("#tabs-container").find(".tab-link-sub[tab='" + id + "']");
+                var subTabLink = $("#tabs-container").find(".wrapper__table-of-content_tabs-sub-tab_link--uitra[tab='" + id + "']");
                 subTabLink.removeClass("active");
                 var prevSubTabLink = subTabLink.prev();
-                if (prevSubTabLink.hasClass("tab-link-sub")) {
+                if (prevSubTabLink.hasClass(.wrapper__table-of-content_tabs-sub-tab_link--uitra")) {
                     prevSubTabLink.addClass("active");
                     var prevId = prevSubTabLink.attr("tab");
                     activeSub = $("#" + prevId);
