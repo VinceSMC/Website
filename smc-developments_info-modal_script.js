@@ -33,14 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.classList.remove('active');
     modals.forEach((modal) => {
       modal.classList.remove('active');
-      // Delay hiding the modal to allow for the opacity transition
-      setTimeout(() => {
-        modal.style.display = 'none';
+      modal.style.display = 'none'; // Hide immediately, no delay
     });
 
-    // Delay hiding the overlay to allow for the opacity transition
-    setTimeout(() => {
-      overlay.style.display = 'none';
+    overlay.style.display = 'none'; // Hide overlay immediately, no delay
   }
 
   // Event listener for opening modals
