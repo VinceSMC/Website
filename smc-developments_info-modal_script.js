@@ -36,13 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
       // Delay hiding the modal to allow for the opacity transition
       setTimeout(() => {
         modal.style.display = 'none';
-      }, 200); // This should match the transition duration
     });
 
     // Delay hiding the overlay to allow for the opacity transition
     setTimeout(() => {
       overlay.style.display = 'none';
-    }, 200); // This should match the transition duration
   }
 
   // Event listener for opening modals
