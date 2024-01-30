@@ -1,7 +1,6 @@
 .info__modal-overlay, .info__modal-content {
   display: none; /* Start with display none to ensure they are not visible */
   opacity: 0;
-  transition: opacity 0.3s ease; /* Transition for opacity */
 }
 
 .info__modal-overlay.active, .info__modal-content.active {
