@@ -1,5 +1,5 @@
 function initCodeBlock() {
-    $(".docs__code-block").each(function(index) {
+    $(".code-block__main--uitra").each(function(index) {
         let textArea = $(this).find(".code-editor")[0];
         let codeMode = "text/x-yaml";
         let copyButton = $(this).find(".copy-code");
