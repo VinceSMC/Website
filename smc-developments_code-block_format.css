@@ -154,18 +154,6 @@
     z-index: 9999; /* Ensure it's above other content */
 }
 
-.cm-tooltip-icon {
-    cursor: pointer;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    color: var(--color-tooltip-icon);
-    z-index: 9999;
-    margin-left: 0.5rem;
-    margin-top: 0.125rem;
-    margin-right: 0.5rem;
-    vertical-align: middle;
-}
 
 data-tooltip {
     display: none;
