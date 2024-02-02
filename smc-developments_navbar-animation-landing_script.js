@@ -4,8 +4,8 @@ function handleScrollForNavbar() {
     // Threshold for .navigation__mob (20% earlier)
     const thresholdNavigationMob = window.innerHeight * 0.3;
 
-    const navbarContainer = document.querySelector(".navigation__container");
-    const navbarSection = document.querySelector(".navigation");
+    const navbarContainer = document.querySelector(".wrapper__navigation-content--vrwnm");
+    const navbarSection = document.querySelector(".wrapper__main-navigation--vrwnm");
     const navbarMobile = document.querySelector(".navigation__mob");
 
     if (window.scrollY >= thresholdNavigation) {
