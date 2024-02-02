@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.navigation__container {
+.wrapper__navigation-content--vrwnm {
     max-width: 95%;
     width: 100%;
     transition: max-width 0.3s; 
@@ -10,17 +10,17 @@
     margin-right: auto;
 }
 
-.navigation__container.animated {
+.wrapper__navigation-content--vrwnm.animated {
     max-width: 85rem
 }
 
-.navigation, .navigation__mob {
+.wrapper__main-navigation--vrwnm, .navigation__mob {
     position: sticky;
     background-color: transparent;
     transition: position 0.3s, background-color 0.3s, width 0.3s;
 }
 
-.navigation.fixed, .navigation__mob.fixed {
+.wrapper__main-navigation--vrwnm.fixed, .navigation__mob.fixed {
     position: fixed;
     top: 0;
     left: 0;
@@ -28,7 +28,7 @@
     width: auto;
 }
 
-.navigation.expanded, .navigation__mob.expanded {
+.wrapper__main-navigation--vrwnm.expanded, .navigation__mob.expanded {
     width: 100vw;
     background-color: var(--nav-bar);
 }
