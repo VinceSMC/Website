@@ -1,4 +1,4 @@
-let duration = 400;
+let duration = 300;
 let menuShape = $(".menu_shape");
 let menuShapeBG = $(".menu_shape-bg");
 let menuLinkLiquid = $(".menu_link");
@@ -80,7 +80,7 @@ $(window).scroll(function() {
         menuContainer.css({
             'opacity': '0',
             'transform': 'translateY(20px)',  // Adjust this value as per your needs
-            'transition': 'opacity 0.3s ease, transform 0.3s ease',
+            'transition': 'opacity 0.2s ease, transform 0.2s ease',
         });
     } 
     // Scroll up
@@ -88,7 +88,7 @@ $(window).scroll(function() {
         menuContainer.css({
             'opacity': '1',
             'transform': 'translateY(0)',  // Adjust this value as per your needs
-            'transition': 'opacity 0.3s ease, transform 0.3s ease',
+            'transition': 'opacity 0.2s ease, transform 0.2s ease',
         });
     }
 
