@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const loader = document.querySelector('.page-loader');
+    const loader = document.querySelector('.page-loader-wrapper');
 
     // Immediately exit if the loader doesn't exist
     if (!loader) return;
