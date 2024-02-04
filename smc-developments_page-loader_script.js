@@ -1,17 +1,19 @@
 window.addEventListener('load', function() {
     const loader = document.querySelector('.page-loader');
-    // Assuming you might toggle visibility via a class in CSS:
-    // .page-loader-wrapper.visible > * { visibility: visible; }
-    const wrapper = document.querySelector('.page-loader-wrapper');
-    if (wrapper) {
-        wrapper.classList.add('visible'); // This assumes you have corresponding CSS.
-    }
+    const contentInsideWrapper = document.querySelectorAll('.page-loader-wrapper > *');
+
+    // Make the content inside .liquid_page-wrapper visible
+    contentInsideWrapper.forEach(item => {
+        item.style.visibility = 'visible';
+    });
 
     if (loader) {
+        // Fade out the loader
         loader.style.opacity = '0';
-        loader.addEventListener('transitionend', function onTransitionEnd() {
-            this.style.display = 'none';
-            this.removeEventListener('transitionend', onTransitionEnd); // Clean up after itself
-        });
+
+        // After the transition, set display to none for the loader
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 200); // Matches the transition time in the CSS
     }
 });
