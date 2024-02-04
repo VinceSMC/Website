@@ -1,19 +1,21 @@
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const loader = document.querySelector('.page-loader');
-    const contentInsideWrapper = document.querySelectorAll('.page-loader-wrapper > *');
 
-    // Make the content inside .liquid_page-wrapper visible
-    contentInsideWrapper.forEach(item => {
-        item.style.visibility = 'visible';
-    });
+    // Immediately exit if the loader doesn't exist
+    if (!loader) return;
 
-    if (loader) {
-        // Fade out the loader
-        loader.style.opacity = '0';
+    // Ensure the content is initially hidden as specified in your CSS,
+    // so there's no need to change visibility through JS for .page-loader-wrapper > * 
 
-        // After the transition, set display to none for the loader
-        setTimeout(() => {
+    // Start the fade-out effect
+    loader.style.opacity = '0';
+
+    // Listen for the end of the transition to then completely hide the loader
+    loader.addEventListener('transitionend', function handleTransitionEnd(event) {
+        // Ensure the event is for the opacity transition to avoid handling other transitions
+        if (event.propertyName === 'opacity') {
             loader.style.display = 'none';
-        }, 300); // Matches the transition time in the CSS
-    }
+            loader.removeEventListener('transitionend', handleTransitionEnd); // Clean up after the transition
+        }
+    });
 });
