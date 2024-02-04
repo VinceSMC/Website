@@ -1,4 +1,4 @@
-let duration = 300;
+let duration = 400;
 let menuShape = $(".menu_shape");
 let menuShapeBG = $(".menu_shape-bg");
 let menuLinkLiquid = $(".menu_link");
