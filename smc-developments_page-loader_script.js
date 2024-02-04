@@ -1,21 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const loader = document.querySelector('.page-loader-wrapper');
+window.addEventListener('load', function() {
+    const loader = document.querySelector('.page-loader');
+    // Assuming you might toggle visibility via a class in CSS:
+    // .page-loader-wrapper.visible > * { visibility: visible; }
+    const wrapper = document.querySelector('.page-loader-wrapper');
+    if (wrapper) {
+        wrapper.classList.add('visible'); // This assumes you have corresponding CSS.
+    }
 
-    // Immediately exit if the loader doesn't exist
-    if (!loader) return;
-
-    // Ensure the content is initially hidden as specified in your CSS,
-    // so there's no need to change visibility through JS for .page-loader-wrapper > * 
-
-    // Start the fade-out effect
-    loader.style.opacity = '0';
-
-    // Listen for the end of the transition to then completely hide the loader
-    loader.addEventListener('transitionend', function handleTransitionEnd(event) {
-        // Ensure the event is for the opacity transition to avoid handling other transitions
-        if (event.propertyName === 'opacity') {
-            loader.style.display = 'none';
-            loader.removeEventListener('transitionend', handleTransitionEnd); // Clean up after the transition
-        }
-    });
+    if (loader) {
+        loader.style.opacity = '0';
+        loader.addEventListener('transitionend', function onTransitionEnd() {
+            this.style.display = 'none';
+            this.removeEventListener('transitionend', onTransitionEnd); // Clean up after itself
+        });
+    }
 });
