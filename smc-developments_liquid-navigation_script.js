@@ -7,7 +7,7 @@ let pageWrapper = $('.liquid_page-wrapper');
 let menuContainer = $(".menu__container"); // .menu__container is the main container holding the menu
 
 // Check if current page is CMS page, if so, set gallery to current
-if (window.location.pathname.includes('/survival-gallery/')) {
+if (window.location.pathname.includes('/survival-gallery/') || window.location.pathname.includes('/skyblock-gallery/')) {
     menuLinkLiquid.each(function() {
         if ($(this).attr("is-cms-link")) {
             $(this).addClass('w--current');
