@@ -4,7 +4,17 @@ let menuShapeBG = $(".menu_shape-bg");
 let menuLinkLiquid = $(".menu_link");
 let currentLink = $(".menu_link.w--current");
 let pageWrapper = $('.liquid_page-wrapper');
-let menuContainer = $(".menu__container");
+let menuContainer = $(".menu__container"); // .menu__container is the main container holding the menu
+
+// Check if current page is CMS page, if so, set gallery to current
+if (window.location.pathname.includes('/survival-gallery/')) {
+    menuLinkLiquid.each(function() {
+        if ($(this).attr("is-cms-link")) {
+            $(this).addClass('w--current');
+            currentLink = $(".menu_link.w--current");
+        }
+    });
+}
 
 // Initial page load settings
 pageWrapper.css('opacity', '1');
@@ -42,7 +52,7 @@ menuLinkLiquid.on("click", function(e) {
 function moveShape(target) {
     let linkWidth = target.innerWidth();
     let linkOffset = target.offset().left;
-    let menuOffset = menuShape.offset().left; // Ensure this targets the correct element for calculating offset
+    let menuOffset = $(".menu").offset().left;
     let leftPosition = linkOffset - menuOffset;
     menuShape.css("left", leftPosition);
     menuShape.css("width", linkWidth);
@@ -58,20 +68,23 @@ window.onpageshow = function(event) {
     if (event.persisted) {
         window.location.reload();
     }
-});
+};
 
 // Scroll-based menu fade and move
 let lastScrollTop = 0;
 $(window).scroll(function() {
     var currentScrollTop = $(this).scrollTop();
 
+    // Scroll down
     if (currentScrollTop > lastScrollTop) {
         menuContainer.css({
             'opacity': '0',
             'transform': 'translateY(20px)',  // Adjust this value as per your needs
             'transition': 'opacity 0.2s ease, transform 0.2s ease',
         });
-    } else {
+    } 
+    // Scroll up
+    else {
         menuContainer.css({
             'opacity': '1',
             'transform': 'translateY(0)',  // Adjust this value as per your needs
