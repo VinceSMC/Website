@@ -14,7 +14,7 @@ function clean_parse_html(){
 		
 }
 function insertSVG(){
-		$('.changelog__item').each(function(){
+		$('.wrapper__changelog-item--hfbsw').each(function(){
 				if(!($(this).children('[data-name="changelog-icon"]').length) ){
             $(this).prepend(changeLogSvg.clone())
         }
