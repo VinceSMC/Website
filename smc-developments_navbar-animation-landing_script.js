@@ -1,12 +1,12 @@
 function handleScrollForNavbar() {
     // Threshold for .navigation
     const thresholdNavigation = window.innerHeight * 0.5;
-    // Threshold for .navigation__mob (20% earlier)
+    // Threshold for .header__mobile-nav--bvhjd (20% earlier)
     const thresholdNavigationMob = window.innerHeight * 0.3;
 
     const navbarContainer = document.querySelector(".wrapper__navigation-content--vrwnm");
     const navbarSection = document.querySelector(".wrapper__main-navigation--vrwnm");
-    const navbarMobile = document.querySelector(".navigation__mob");
+    const navbarMobile = document.querySelector(".header__mobile-nav--bvhjd");
 
     if (window.scrollY >= thresholdNavigation) {
         navbarContainer.classList.add("animated");
