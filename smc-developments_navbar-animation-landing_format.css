@@ -14,13 +14,13 @@
     max-width: 97.5rem
 }
 
-.wrapper__main-navigation--vrwnm, .navigation__mob {
+.wrapper__main-navigation--vrwnm, .header__mobile-nav--bvhjd {
     position: sticky;
     background-color: transparent;
     transition: position 0.3s, background-color 0.3s, width 0.3s;
 }
 
-.wrapper__main-navigation--vrwnm.fixed, .navigation__mob.fixed {
+.wrapper__main-navigation--vrwnm.fixed, .header__mobile-nav--bvhjd.fixed {
     position: fixed;
     top: 0;
     left: 0;
@@ -28,7 +28,7 @@
     width: auto;
 }
 
-.wrapper__main-navigation--vrwnm.expanded, .navigation__mob.expanded {
+.wrapper__main-navigation--vrwnm.expanded, .header__mobile-nav--bvhjd.expanded {
     width: 100vw;
     background-color: var(--nav-bar);
 }
