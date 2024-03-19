@@ -75,21 +75,24 @@ let lastScrollTop = 0;
 $(window).scroll(function() {
     var currentScrollTop = $(this).scrollTop();
 
-    // Scroll down
-    if (currentScrollTop > lastScrollTop) {
-        menuContainer.css({
-            'opacity': '0',
-            'transform': 'translateY(20px)',  // Adjust this value as per your needs
-            'transition': 'opacity 0.2s ease, transform 0.2s ease',
-        });
-    } 
-    // Scroll up
-    else {
-        menuContainer.css({
-            'opacity': '1',
-            'transform': 'translateY(0)',  // Adjust this value as per your needs
-            'transition': 'opacity 0.2s ease, transform 0.2s ease',
-        });
+    // Only apply effects if window width is greater than 478px
+    if ($(window).width() > 478) {
+        // Scroll down
+        if (currentScrollTop > lastScrollTop) {
+            menuContainer.css({
+                'opacity': '0',
+                'transform': 'translateY(20px)', // Adjust this value as per your needs
+                'transition': 'opacity 0.2s ease, transform 0.2s ease',
+            });
+        } 
+        // Scroll up
+        else {
+            menuContainer.css({
+                'opacity': '1',
+                'transform': 'translateY(0)', // Adjust this value as per your needs
+                'transition': 'opacity 0.2s ease, transform 0.2s ease',
+            });
+        }
     }
 
     lastScrollTop = currentScrollTop;
