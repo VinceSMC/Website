@@ -2,7 +2,7 @@
 .changelog__modal-overlay {
     display: none; /* Hidden by default */
     opacity: 0; /* Initially set to invisible */
-    transition: opacity 0.3s ease; /* Smooth transition for the opacity */
+    transition: opacity 0.15s ease; /* Smooth transition for the opacity */
 }
 
 .changelog__modal-content {
