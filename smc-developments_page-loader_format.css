@@ -10,7 +10,7 @@
     width: 100%;
     height: 100%;
     background: var(--swatch-dark--background, #FFF); /* Fallback to white if the variable is not defined */
-    transition: opacity 200ms ease-in-out; 
+    transition: opacity 150ms ease-in-out; 
     z-index: 990;
 }
 
