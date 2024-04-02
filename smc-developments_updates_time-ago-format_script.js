@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Utility function to correctly format time units based on the quantity
+    function formatTimeUnit(quantity, unit) {
+        return `${quantity} ${unit}${quantity > 1 ? 's' : ''} ago`;
+    }
+
     document.querySelectorAll('[data-changelog-datetime]').forEach(function(element) {
         // Find the parent CMS item and the hidden date field using data-attributes
         let cmsItem = element.closest('[data-cms-item]');
@@ -22,13 +27,13 @@ document.addEventListener("DOMContentLoaded", function() {
             result = 'Just now';
         } else if (difference < hour) {
             let minutesPassed = Math.round(difference / minute);
-            result = minutesPassed + ' minutes ago';
+            result = formatTimeUnit(minutesPassed, 'minute');
         } else if (difference < day) {
             let hoursPassed = Math.round(difference / hour);
-            result = hoursPassed + ' hours ago';
+            result = formatTimeUnit(hoursPassed, 'hour');
         } else if (difference < (day * 30)) {
             let daysPassed = Math.floor(difference / day);
-            result = daysPassed + ' days ago';
+            result = formatTimeUnit(daysPassed, 'day');
         } else {
             // Calculate the month difference
             let yearDiff = now.getFullYear() - dateTime.getFullYear();
@@ -44,9 +49,9 @@ document.addEventListener("DOMContentLoaded", function() {
             // If monthDiff is 0, it means we're in the same month and should show the day difference.
             if (monthDiff <= 0) {
                 let daysPassed = Math.floor(difference / day);
-                result = daysPassed + ' days ago';
+                result = formatTimeUnit(daysPassed, 'day');
             } else {
-                result = monthDiff === 1 ? '1 month ago' : monthDiff + ' months ago';
+                result = formatTimeUnit(monthDiff, 'month');
             }
         }
         
