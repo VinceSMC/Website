@@ -1,4 +1,4 @@
-.page-loader-wrapper > * { /* Targets all direct children of .liquid_page-wrapper */
+.page-loader-wrapper > * { /* Targets all direct children of .page-loader-wrapper */
     visibility: hidden;
 }
 
@@ -12,4 +12,14 @@
     background: var(--swatch-dark--background, #FFF); /* Fallback to white if the variable is not defined */
     transition: opacity 200ms ease-in-out; 
     z-index: 990;
+}
+
+/* Specific rule for dark mode */
+.page-loader.is--dark-mode {
+    background: var(--swatch-dark--background);
+}
+
+/* Specific rule for light mode */
+.page-loader.is--light-mode {
+    background: var(--swatch-light--background);
 }
