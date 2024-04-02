@@ -22,10 +22,10 @@
 
 /* Specific rule for dark mode */
 .page-loader.is--dark-mode {
-    background: var(--swatch-dark--background);
+    background-color: var(--swatch-dark--background);
 }
 
 /* Specific rule for light mode */
 .page-loader.is--light-mode {
-    background: var(--swatch-light--background);
+    background-color: var(--swatch-light--background);
 }
