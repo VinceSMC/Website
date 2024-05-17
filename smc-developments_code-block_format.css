@@ -159,27 +159,6 @@ data-tooltip {
     display: none;
 }
 
-.copy-code-popup {
-    position: fixed;
-    right: 20px;
-    bottom: -50px; /* Initially positioned outside the screen for the transition effect */
-    padding: 1rem 10rem 1rem 1rem; /* top right bottom left */
-    background-color: #FAFBFE;
-    color: #12141d;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #d8e3f0;
-    opacity: 0;
-    transition: bottom 0.3s, opacity 0.3s;
-    z-index: 1000; /* High z-index to ensure it appears above other elements */
-    width: auto; /* Make sure the width is determined by content */
-}
-
-.show-popup {
-    bottom: 20px;
-    opacity: 1;
-}
-
 @media (max-width: 599px) {
     .cm-tooltip-icon {
         display: none !important;
