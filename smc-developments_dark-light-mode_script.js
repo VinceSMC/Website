@@ -27,18 +27,10 @@ if (localStorage.getItem("mode")) {
 
 function switch_mode_from_dark_to_light() {
   $(".is--dark-mode").replaceClass("is--dark-mode", "is--light-mode");
-
-  $(".is--body-dark-mode").replaceClass(
-    "is--body-dark-mode",
-    "is--body-light-mode"
   );
 }
 
 function switch_mode_from_light_to_dark() {
   $(".is--light-mode").replaceClass("is--light-mode", "is--dark-mode");
-
-  $(".is--body-light-mode").replaceClass(
-    "is--body-light-mode",
-    "is--body-dark-mode"
   );
 }
