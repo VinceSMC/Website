@@ -17,20 +17,18 @@ $(".wrapper__light-switch--lnnbg").click(function (evt) {
   }
 });
 
-// If user has exist mode set
+// If user has existing mode set
 if (localStorage.getItem("mode")) {
   let userMode = localStorage.getItem("mode");
   if (userMode == "light") {
-    $(".wrapper__light-switch--lnnbg")[0].click();
+    $(".wrapper__light-switch--lnnbg").click();
   }
 }
 
 function switch_mode_from_dark_to_light() {
   $(".is--dark-mode").replaceClass("is--dark-mode", "is--light-mode");
-  );
 }
 
 function switch_mode_from_light_to_dark() {
   $(".is--light-mode").replaceClass("is--light-mode", "is--dark-mode");
-  );
 }
