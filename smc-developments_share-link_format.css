@@ -1,9 +1,3 @@
-.changelog__modal-overlay {
-    display: none; /* Hidden by default */
-    opacity: 0; /* Initially set to invisible */
-    transition: opacity 0.15s ease;
-}
-
 .changelog__modal-content {
     z-index: 2;
 }
