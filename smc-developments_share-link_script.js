@@ -5,24 +5,24 @@ document.addEventListener('DOMContentLoaded', function() {
     shareButtons.forEach(function(button) {
         button.addEventListener('click', function(event) {
             event.preventDefault(); // prevent default action if it's an anchor or a button inside a form
-            const overlay = document.querySelector('.changelog__modal-overlay');
+            const overlay = document.querySelector('[data-modal-overlay]');
             overlay.style.display = 'flex';
-            setTimeout(() => overlay.classList.add('show-modal'), 10);
+            setTimeout(() => overlay.setAttribute('data-show-modal', 'true'), 10);
 
             // Get the dynamic link from the element with "data-modal-shareable-link" attribute within the closest parent with "data-link-share"
             const dynamicLink = this.closest('[data-link-share]').querySelector('[data-modal-shareable-link]').href;
 
             // Change the text inside the modal to the link
-            const linkText = document.querySelector('.modal__link-text');
+            const linkText = document.querySelector('[data-modal-link-text]');
             linkText.textContent = dynamicLink;
         });
     });
 
-    // Function to hide the modal when overlay or close SVG is clicked
-    document.querySelector('.changelog__modal-overlay').addEventListener('click', function(e) {
-        if (e.target === this || e.target.closest('.modal__close')) {
-            const overlay = document.querySelector('.changelog__modal-overlay');
-            overlay.classList.remove('show-modal');
+    // Function to hide the modal when overlay or close element is clicked
+    document.querySelector('[data-modal-overlay]').addEventListener('click', function(e) {
+        if (e.target === this || e.target.closest('[data-modal-close]')) {
+            const overlay = document.querySelector('[data-modal-overlay]');
+            overlay.removeAttribute('data-show-modal');
             setTimeout(() => {
                 overlay.style.display = 'none';
             }, 300);
@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Code to copy the CMS link
-    const copyButton = document.querySelector('.modal__copy-button');
+    const copyButton = document.querySelector('[data-modal-copy-button]');
     copyButton.addEventListener('click', function() {
-        const link = document.querySelector('.modal__link-text').textContent;
+        const link = document.querySelector('[data-modal-link-text]').textContent;
         const tempInput = document.createElement('input');
         document.body.appendChild(tempInput);
         tempInput.value = link;
