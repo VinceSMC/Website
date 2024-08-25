@@ -1,14 +1,19 @@
 window.addEventListener('load', function() {
-    const wrapper = document.querySelector('.liquid_page-wrapper');
+    const loader = document.querySelector('.page-loader');
+    const contentInsideWrapper = document.querySelectorAll('.page-loader-wrapper > *');
 
-    if (wrapper) {
-        // Fade out the wrapper smoothly
-        wrapper.style.transition = 'opacity 150ms ease-in-out';
-        wrapper.style.opacity = '0';
+    // Make the content inside .liquid_page-wrapper visible
+    contentInsideWrapper.forEach(item => {
+        item.style.visibility = 'visible';
+    });
 
-        // After the transition, hide the wrapper
+    if (loader) {
+        // Fade out the loader
+        loader.style.opacity = '0';
+
+        // After the transition, set display to none for the loader
         setTimeout(() => {
-            wrapper.style.display = 'none';
-        }, 150); // Matches the transition time
+            loader.style.display = 'none';
+        }, 200); // Matches the transition time in the CSS
     }
 });
