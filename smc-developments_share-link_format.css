@@ -14,8 +14,3 @@
     display: flex;
     opacity: 1; /* Fully visible when the attribute is added */
 }
-
-[data-modal-close] {
-    cursor: pointer; /* Make it look clickable */
-    /* You can add additional styling for the close button/icon here */
-}
