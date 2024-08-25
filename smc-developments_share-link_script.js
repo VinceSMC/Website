@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Attach click event to all elements with the "data-changelog-social-share" attribute
-    const shareButtons = document.querySelectorAll('[data-changelog-social-share]');
+    // Attach click event to all elements with the "data-social-share" attribute
+    const shareButtons = document.querySelectorAll('[data-social-share]');
     shareButtons.forEach(function(button) {
         button.addEventListener('click', function(event) {
             event.preventDefault(); // prevent default action if it's an anchor or a button inside a form
