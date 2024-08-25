@@ -1,16 +1,14 @@
-/* CSS for Smooth Transitions and Modal Styling */
-[data-modal-overlay] {
+.changelog__modal-overlay {
     display: none; /* Hidden by default */
     opacity: 0; /* Initially set to invisible */
-    transition: opacity 0.15s ease; /* Smooth transition for the opacity */
+    transition: opacity 0.15s ease;
 }
 
-[data-modal-content] {
-    z-index: 2; /* Ensures content is above overlay */
-    /* You can add more styling for the modal content here */
+.changelog__modal-content {
+    z-index: 2;
 }
 
-[data-modal-overlay][data-show-modal="true"] {
+.changelog__modal-overlay.show-modal {
     display: flex;
-    opacity: 1; /* Fully visible when the attribute is added */
+    opacity: 1;
 }
