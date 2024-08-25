@@ -1,8 +1,0 @@
-.changelog__modal-content {
-    z-index: 2;
-}
-
-.changelog__modal-overlay.show-modal {
-    display: flex;
-    opacity: 1;
-}
