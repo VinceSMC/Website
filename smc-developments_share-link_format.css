@@ -1,21 +1,21 @@
 /* CSS for Smooth Transitions and Modal Styling */
-.changelog__modal-overlay {
+[data-modal-overlay] {
     display: none; /* Hidden by default */
     opacity: 0; /* Initially set to invisible */
     transition: opacity 0.15s ease; /* Smooth transition for the opacity */
 }
 
-.changelog__modal-content {
+[data-modal-content] {
     z-index: 2; /* Ensures content is above overlay */
     /* You can add more styling for the modal content here */
 }
 
-.changelog__modal-overlay.show-modal {
+[data-modal-overlay][data-show-modal="true"] {
     display: flex;
-    opacity: 1; /* Fully visible when the class is added */
+    opacity: 1; /* Fully visible when the attribute is added */
 }
 
-.modal__close {
+[data-modal-close] {
     cursor: pointer; /* Make it look clickable */
     /* You can add additional styling for the close button/icon here */
 }
