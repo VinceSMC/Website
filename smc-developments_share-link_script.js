@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault(); // prevent default action if it's an anchor or a button inside a form
             const overlay = document.querySelector('.changelog__modal-overlay');
             overlay.style.display = 'flex';
-            setTimeout(() => overlay.classList.add('show-modal'), 10);
+            setTimeout(() => overlay.classList.add('is--visible'), 10);
 
             // Get the dynamic link from the element with "data-modal-shareable-link" attribute within the closest parent with "data-link-share"
             const dynamicLink = this.closest('[data-link-share]').querySelector('[data-modal-shareable-link]').href;
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.changelog__modal-overlay').addEventListener('click', function(e) {
         if (e.target === this || e.target.closest('.modal__close')) {
             const overlay = document.querySelector('.changelog__modal-overlay');
-            overlay.classList.remove('show-modal');
+            overlay.classList.remove('is--visible');
             setTimeout(() => {
                 overlay.style.display = 'none';
             }, 300);
