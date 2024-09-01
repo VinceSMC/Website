@@ -4,7 +4,7 @@
 
 .is--dark-mode {
     --color1: #606060; 
-    --color-true-false: #e45f35;
+    --color-true-false: #30b28c;
     --color-text-inside: #7f8596;
     --color4: #606060;
     --color5: #606060;
@@ -20,7 +20,7 @@
 
 .is--light-mode {
     --color1: #606060; 
-    --color-true-false: #e45f35;
+    --color-true-false: #30b28c;
     --color-text-inside: #7f8596;
     --color4: #606060;
     --color5: #606060;
