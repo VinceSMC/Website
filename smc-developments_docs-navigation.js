@@ -24,7 +24,8 @@ $(window).ready(() => {
 
     // Function to check and remove 'is--edit' class if present
     function checkAndRemoveIsEditClass() {
-        var subTabWrapper = $(".wrapper__table-of-content_tabs-sub-tab--uitra");
+        // Assuming the div is nested within #tabs-container
+        var subTabWrapper = $("#tabs-container").find(".wrapper__table-of-content_tabs-sub-tab--uitra");
         if (subTabWrapper.hasClass("is--edit")) {
             subTabWrapper.removeClass("is--edit");
         }
