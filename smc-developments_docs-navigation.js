@@ -22,6 +22,14 @@ $(window).ready(() => {
     var allTabs = $(".wrapper__main-content_content--uitra").find(".wrapper__main-content_content-section--uitra");
     var activeSub;
 
+    // Function to check and remove 'is--edit' class if present
+    function checkAndRemoveIsEditClass() {
+        var subTabWrapper = $(".wrapper__table-of-content_tabs-sub-tab--uitra");
+        if (subTabWrapper.hasClass("is--edit")) {
+            subTabWrapper.removeClass("is--edit");
+        }
+    }
+
     $(window).scroll(() => {
         var visibleTabs = [];
         allTabs.each((k, v) => {
@@ -84,6 +92,9 @@ $(window).ready(() => {
                 }
             }
         }
+
+        // Call the function to check and remove 'is--edit' class
+        checkAndRemoveIsEditClass();
     });
 });
 
