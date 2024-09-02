@@ -22,15 +22,6 @@ $(window).ready(() => {
     var allTabs = $(".wrapper__main-content_content--uitra").find(".wrapper__main-content_content-section--uitra");
     var activeSub;
 
-    // Function to check and remove 'is--edit' class if present
-    function checkAndRemoveIsEditClass() {
-        // Assuming the div is nested within #tabs-container
-        var subTabWrapper = $("#tabs-container").find(".wrapper__table-of-content_tabs-sub-tab--uitra");
-        if (subTabWrapper.hasClass("is--edit")) {
-            subTabWrapper.removeClass("is--edit");
-        }
-    }
-
     $(window).scroll(() => {
         var visibleTabs = [];
         allTabs.each((k, v) => {
@@ -93,9 +84,6 @@ $(window).ready(() => {
                 }
             }
         }
-
-        // Call the function to check and remove 'is--edit' class
-        checkAndRemoveIsEditClass();
     });
 });
 
