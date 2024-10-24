@@ -4,13 +4,13 @@
 
 .is--dark-mode {
     --color1: #606060; 
-    --color-true-false: #30b28c;
+    --color-true-false: #C39061;
     --color-text-inside: #C9C9C9;
     --color4: #606060;
     --color5: #606060;
     --color-prefix: #f57c61;
     --color-text: #C9C9C9;
-    --color-number: #9f73e6;
+    --color-number: #C39061;
     --color-dots: rgba(255, 255, 255, 0.5);
     --color-line-numbers: rgba(255, 255, 255, 0.5);
     --color-comment: rgba(255, 255, 255, 0.25);
